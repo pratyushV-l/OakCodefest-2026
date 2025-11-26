@@ -6,13 +6,13 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--bg-color);
+  background-color:rgb(17, 17, 17);
   color: var(--text-color);
 }
 
-.sentinel {
-  height: 0;
-  width: 0;
+#sentinel {
+  height: 1%;
+  width: 100%;
 }
 
 .navbar {
@@ -28,7 +28,7 @@ body {
   transform: translateX(-50%);
   width: 100%;
   height: 60px;
-  background-color: var(--sec-bg);
+  background-color: #171717;
   padding: 0 2rem;
   display: flex;
   justify-content: center;
