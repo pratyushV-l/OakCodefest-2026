@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // output: 'export',
+  // basePath: '/CFHero',
+  // assetPrefix: '/CFHero/',
+  devIndicators: false,
 };
 
 export default nextConfig;
