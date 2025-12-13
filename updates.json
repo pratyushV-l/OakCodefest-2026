@@ -33,5 +33,12 @@
     "date": "2025-11-01",
     "image": "https://picsum.photos/800/600?random=5",
     "importance": 1
+  },
+  {
+    "title": "Theme Public",
+    "description": "This year: 'Build Humanity' — challenges aligned to social impact.",
+    "date": "2025-11-01",
+    "image": "https://picsum.photos/800/600?random=5",
+    "importance": 1
   }
 ]

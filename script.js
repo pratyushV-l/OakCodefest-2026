@@ -5,7 +5,7 @@ const RIGHT_BTN_SELECTOR = '.nav-btn.right';
 let LEFT_BTN, RIGHT_BTN;
 let updates = [];
 let activeIndex = 0;
-const visibleCount = 5;
+
 const GAP = 20;
 
 async function init() {
@@ -28,6 +28,7 @@ async function init() {
 
   renderCards();
   activeIndex = 0;
+
   requestAnimationFrame(() => updatePosition(0));
   attachListeners();
 }
@@ -83,23 +84,32 @@ function renderCards() {
     });
   });
 
-  setCenterClass();
+  requestAnimationFrame(() => {
+    TRACK.style.paddingLeft = '0px';
+    TRACK.style.paddingRight = '0px';
+    setCenterClass();
+  });
 }
 
 function cardDimensions() {
   const card = TRACK.querySelector('.update-card');
   if (!card) return { w: 320, gap: GAP };
-  const w = card.getBoundingClientRect().width;
+  const w = Math.round(card.getBoundingClientRect().width);
   const gap = GAP;
   return { w, gap };
 }
 
 function updatePosition(animate = 1) {
   const { w, gap } = cardDimensions();
+  const step = w + gap;
+
   const mask = TRACK.parentElement;
+  if (!mask) return;
+
   const maskW = mask.getBoundingClientRect().width;
-  const centerOffset = maskW / 2 - w / 2;
-  const translateX = -(activeIndex * (w + gap)) + centerOffset;
+  const viewportCenter = Math.round(maskW / 2);
+  const baseTranslate = viewportCenter - (w / 2);
+  const translateX = Math.round(baseTranslate - (activeIndex * step));
 
   if (!animate) {
     TRACK.style.transition = 'none';
@@ -116,21 +126,25 @@ function updatePosition(animate = 1) {
 function setCenterClass() {
   const cards = Array.from(TRACK.querySelectorAll('.update-card'));
   cards.forEach(c => c.classList.remove('center'));
-  const centerIndex = activeIndex;
-  const centerCard = TRACK.querySelector(`.update-card[data-index="${centerIndex}"]`);
+
+  const centerCard = TRACK.querySelector(`.update-card[data-index="${activeIndex}"]`);
   if (centerCard) centerCard.classList.add('center');
 }
 
 function attachListeners() {
   LEFT_BTN.addEventListener('click', () => {
-    activeIndex = Math.max(0, activeIndex - 1);
+  if (activeIndex > 0) {
+    activeIndex = activeIndex - 1;
     updatePosition(true);
-  });
+  }
+});
 
-  RIGHT_BTN.addEventListener('click', () => {
-    activeIndex = Math.min(updates.length - 1, activeIndex + 1);
+RIGHT_BTN.addEventListener('click', () => {
+  if (activeIndex < updates.length - 1) {
+    activeIndex = activeIndex + 1;
     updatePosition(true);
-  });
+  }
+});
 
   setupDrag();
 
@@ -143,36 +157,45 @@ function attachListeners() {
 function setupDrag() {
   let startX = 0;
   let dragging = false;
+  let startTranslate = 0;
   const mask = TRACK.parentElement;
 
   mask.addEventListener('pointerdown', e => {
     dragging = true;
     startX = e.clientX;
+
     TRACK.style.transition = 'none';
+
+    const style = window.getComputedStyle(TRACK);
+    const matrix = new DOMMatrixReadOnly(style.transform);
+    startTranslate = matrix.m41 || 0;
+
     mask.setPointerCapture?.(e.pointerId);
   });
 
   mask.addEventListener('pointermove', e => {
     if (!dragging) return;
-    const { w, gap } = cardDimensions();
     const dx = e.clientX - startX;
-    const maskW = mask.getBoundingClientRect().width;
-    const centerOffset = maskW / 2 - w / 2;
-    const base = -(activeIndex * (w + gap)) + centerOffset;
-    TRACK.style.transform = `translateX(${base + dx}px)`;
+    TRACK.style.transform = `translateX(${Math.round(startTranslate + dx)}px)`;
   });
 
   mask.addEventListener('pointerup', e => {
-    if (!dragging) return;
-    dragging = false;
-    TRACK.style.transition = '';
-    const dx = e.clientX - startX;
+  if (!dragging) return;
+  dragging = false;
 
-    if (dx > 60) activeIndex = Math.max(0, activeIndex - 1);
-    else if (dx < -60) activeIndex = Math.min(updates.length - 1, activeIndex + 1);
+  TRACK.style.transition = '';
 
-    updatePosition(true);
-  });
+  const dx = e.clientX - startX;
+
+  if (dx > 60 && activeIndex > 0) {
+    activeIndex = activeIndex - 1;
+  } 
+  else if (dx < -60 && activeIndex < updates.length - 1) {
+    activeIndex = activeIndex + 1;
+  }
+
+  updatePosition(true);
+});
 
   mask.addEventListener('pointercancel', () => {
     dragging = false;
@@ -180,7 +203,9 @@ function setupDrag() {
   });
 }
 
-window.addEventListener('resize', () => updatePosition(false));
+window.addEventListener('resize', () => {
+  updatePosition(false);
+});
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);

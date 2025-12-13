@@ -37,7 +37,8 @@ html, body {
 
 .updates-viewport {
   width: 100%;
-  max-width: none;
+  max-width: 100%;
+  overflow:hidden;
   margin: 0;
   padding: 0 32px;
   position: relative;
@@ -90,12 +91,12 @@ html, body {
   align-items: center;
   transition: transform 600ms cubic-bezier(.22,.9,.23,1);
   will-change: transform;
-  padding: 12px 24px 150px;
+  padding: 12px 0 150px;
   box-sizing: border-box;
 }
 
 .update-card {
-  flex: 0 0 calc((100vw - (5 * 20px) - 48px - 48px) / 5);
+  flex: 0 0 22%;
   height: 440px;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border-radius: 18px;
@@ -207,13 +208,6 @@ html, body {
 .left-shadow,
 .right-shadow {
   display: none !important;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 48px auto;
-  padding: 0 24px;
-  box-sizing: border-box;
 }
 
 .ascii img {
