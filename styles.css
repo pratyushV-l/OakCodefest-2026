@@ -82,7 +82,7 @@ html, body {
 .nav-btn.right { right: 16px; }
 
 .updates-mask {
-  overflow: visible;
+  overflow: hidden;
   flex: 1;
   margin: 0;
   padding: 0;
@@ -101,7 +101,7 @@ html, body {
 }
 
 .update-card {
-  flex: 0 0 22%;
+  flex: 0 0 360px;
   height: 440px;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border-radius: 18px;
