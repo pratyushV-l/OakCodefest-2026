@@ -99,17 +99,19 @@ function cardDimensions() {
   return { w, gap };
 }
 
-function updatePosition(animate = 1) {
+function updatePosition(animate = true) {
   const { w, gap } = cardDimensions();
   const step = w + gap;
 
-  const mask = TRACK.parentElement;
+  const mask = TRACK.closest('.updates-mask');
   if (!mask) return;
 
-  const maskW = mask.getBoundingClientRect().width;
-  const viewportCenter = Math.round(maskW / 2);
-  const baseTranslate = viewportCenter - (w / 2);
-  const translateX = Math.round(baseTranslate - (activeIndex * step));
+  const maskWidth = mask.getBoundingClientRect().width;
+  const centerX = maskWidth / 2;
+
+  const translateX = Math.round(
+    centerX - w / 2 - activeIndex * step
+  );
 
   if (!animate) {
     TRACK.style.transition = 'none';
@@ -127,24 +129,27 @@ function setCenterClass() {
   const cards = Array.from(TRACK.querySelectorAll('.update-card'));
   cards.forEach(c => c.classList.remove('center'));
 
-  const centerCard = TRACK.querySelector(`.update-card[data-index="${activeIndex}"]`);
+  const centerCard = TRACK.querySelector(
+    `.update-card[data-index="${activeIndex}"]`
+  );
+
   if (centerCard) centerCard.classList.add('center');
 }
 
 function attachListeners() {
   LEFT_BTN.addEventListener('click', () => {
-  if (activeIndex > 0) {
-    activeIndex = activeIndex - 1;
-    updatePosition(true);
-  }
-});
+    if (activeIndex > 0) {
+      activeIndex -= 1;
+      updatePosition(true);
+    }
+  });
 
-RIGHT_BTN.addEventListener('click', () => {
-  if (activeIndex < updates.length - 1) {
-    activeIndex = activeIndex + 1;
-    updatePosition(true);
-  }
-});
+  RIGHT_BTN.addEventListener('click', () => {
+    if (activeIndex < updates.length - 1) {
+      activeIndex += 1;
+      updatePosition(true);
+    }
+  });
 
   setupDrag();
 
@@ -180,22 +185,23 @@ function setupDrag() {
   });
 
   mask.addEventListener('pointerup', e => {
-  if (!dragging) return;
-  dragging = false;
+    if (!dragging) return;
+    dragging = false;
 
-  TRACK.style.transition = '';
+    TRACK.style.transition = '';
 
-  const dx = e.clientX - startX;
+    const dx = e.clientX - startX;
+    const { w, gap } = cardDimensions();
+    const step = w + gap;
 
-  if (dx > 60 && activeIndex > 0) {
-    activeIndex = activeIndex - 1;
-  } 
-  else if (dx < -60 && activeIndex < updates.length - 1) {
-    activeIndex = activeIndex + 1;
-  }
+    const deltaIndex = Math.round(-dx / step);
+    activeIndex = Math.max(
+      0,
+      Math.min(updates.length - 1, activeIndex + deltaIndex)
+    );
 
-  updatePosition(true);
-});
+    updatePosition(true);
+  });
 
   mask.addEventListener('pointercancel', () => {
     dragging = false;
