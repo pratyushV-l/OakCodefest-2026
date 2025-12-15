@@ -397,9 +397,9 @@ html, body {
   }
   50% {
     box-shadow:
-      0 0 16px var(-v-accent-color),
+      0 0 16px var(--accent-color),
       0 0 40px var(--accent-color),
-      0 0 70px ar(--sec-accent-color);
+      0 0 70px var(--sec-accent-color);
   }
   100% {
     box-shadow:
