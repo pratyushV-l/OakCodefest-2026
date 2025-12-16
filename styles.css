@@ -485,7 +485,7 @@ html, body {
 }
 
 .time-box span.flip {
-  animation: flip 0.075s ease;
+  animation: flip 0.2s ease;
 }
 
 @keyframes pulseGlow {
