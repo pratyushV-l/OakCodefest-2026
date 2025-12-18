@@ -14,3 +14,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.borderline {
+  height: 2px;
+  background-color: var(--sec-bg);
+  margin: 2rem 0;
+}

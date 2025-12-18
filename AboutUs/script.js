@@ -68,4 +68,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 16);
     }
     startAutoScroll();
+
+    const circle1 = document.getElementById('bubble-1');
+    const circle2 = document.getElementById('bubble-2');
+    const circle3 = document.getElementById('bubble-3');
+    const initialTop1 = parseFloat(getComputedStyle(circle1).top);
+    const initialTop2 = parseFloat(getComputedStyle(circle2).top);
+    const initialTop3 = parseFloat(getComputedStyle(circle3).top);
+    let angle1 = 0;
+    let angle2 = 0;
+    let angle3 = 0;
+    let delay = 0;
+    function animate() {
+        const bobAmount = 10;
+        const bobSpeed = 0.040;
+
+        const offsetY1 = Math.sin(angle1) * bobAmount;
+        circle1.style.top = `${initialTop1 + offsetY1}px`;
+        angle1 += bobSpeed;
+        if (delay >= 0.3) {
+            const offsetY2 = Math.sin(angle2) * bobAmount;
+            circle2.style.top = `${initialTop2 + offsetY2}px`;
+            angle2 += bobSpeed;
+        }
+        if (delay >= 0.6) {
+            const offsetY3 = Math.sin(angle3) * bobAmount;
+            circle3.style.top = `${initialTop3 + offsetY3}px`;
+            angle3 += bobSpeed;
+        }
+        delay += bobSpeed;
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
 });
