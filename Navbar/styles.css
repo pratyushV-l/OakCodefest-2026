@@ -145,7 +145,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    background-color: var(--sec-bg);
+    background-color: var(--bg-color);
     flex-direction: column;
     display: flex;
     gap: 1rem;
@@ -154,6 +154,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     text-align: center;
     z-index: 999;
+    overflow: hidden;
   }
 
   .nav-menu.hidden {
@@ -162,7 +163,7 @@ body {
 
   .nav-inner ul {
     gap: 1rem;
-    padding: 0;
+    padding: 10px;
   }
 
   .nav-inner a {

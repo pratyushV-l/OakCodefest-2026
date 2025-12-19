@@ -11,6 +11,8 @@ fetch(headerUrl)
     const sentinel = document.getElementById('sentinel');
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
+    const navInner = document.getElementById('navInner');
+    let isHamburgerOpen = false;
 
     // intersection observer
     if (navbar && sentinel) {
@@ -23,6 +25,14 @@ fetch(headerUrl)
     if (hamburgerBtn && navMenu) {
       hamburgerBtn.addEventListener('click', () => {
         navMenu.classList.toggle('hidden');
+        if (!isHamburgerOpen) {
+          navInner.style.overflow = "visible";
+          isHamburgerOpen = true;
+        }
+        else {
+          navInner.style.overflow = "hidden";
+          isHamburgerOpen = false;
+        }
       });
     }
   });
