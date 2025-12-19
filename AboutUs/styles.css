@@ -24,6 +24,10 @@
     box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
 }
 
+.benefit-card p {
+    font-size: 1em;
+}
+
 .mission-vision-text {
     flex: 2;
     min-width: 300px;
