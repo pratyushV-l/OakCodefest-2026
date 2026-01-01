@@ -178,6 +178,16 @@
     animation: blink 0.7s steps(1) infinite;
 }
 
+.terminal-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+.faqs-section {
+    padding: 80px 40px;
+}
+
 @keyframes blink {
     50% { opacity: 0; }
 }
@@ -452,9 +462,3 @@ section {
 .mission-and-vision {
     font-size: 1.2em;
 }
-
-.terminal-output {
-    white-space: pre-wrap;
-    word-wrap: break-word; /* legacy */
-    overflow-wrap: break-word; /* modern */
-  }
