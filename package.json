@@ -1,0 +1,12 @@
+{
+  "name": "netlify-login-system",
+  "version": "1.0.0",
+  "description": "Simple secure login system for Netlify",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": ["login", "netlify", "serverless"],
+  "author": "",
+  "license": "ISC"
+}
