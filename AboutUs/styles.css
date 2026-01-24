@@ -463,27 +463,35 @@ section {
     font-size: 1.2em;
 }
 
-.our-team-section .section-title {
-    padding-left: 40px; 
-    margin-bottom: 20px;
+.schedule-section {
+    width: 100%;
+    padding: 64px 24px;
+    box-sizing: border-box;
 }
 
-.our-team-description {
-    padding-left: 40px; 
-    margin-bottom: 30px; 
-    max-width: 900px;
+.schedule-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 32px;
 }
 
-.team-iframe-container {
-    width: 100%; 
-    display: flex; 
+.schedule-container {
+    display: flex;
+    gap: 24px;
+    max-width: 900px;  
+    margin: 0 auto;
+}
+
+.schedule-image {
+    flex: 1;
+    display: flex;
     justify-content: center;
 }
 
 .team-iframe {
     width: 100%; 
-    max-width: 1600px; 
-    height: 1600px; 
+    max-width: 1400px; 
+    height: 500px; 
     border: none; 
     overflow: hidden; 
     background-color: transparent;
