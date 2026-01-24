@@ -1,5 +1,5 @@
 const EVENT_DATE = new Date("2026-02-08T10:00:00");
-const TEAM_ID = localStorage.getItem("team_id") || "T01";
+const TEAM_ID = localStorage.getItem("username") || "T01";
 
 let feedbackData = [];
 
@@ -34,7 +34,7 @@ function startCountdown() {
 }
 
 async function loadDashboardData() {
-  const team_id = localStorage.getItem("team_id") || "T01";
+  const team_id = localStorage.getItem("username") || "T01";
 
   const res = await fetch("/.netlify/functions/getDashboardData", {
     method: "POST",
