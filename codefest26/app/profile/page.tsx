@@ -419,26 +419,6 @@ export default function ProfilePage() {
         </div>
       <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
         <ProfileCard
-                name="Anainah Nahas"
-                title="Logistics Team"
-                handle="anainah"
-                status="Online"
-                contactText="Contact Me"
-                avatarUrl={anainahImg.src}
-                iconUrl={iconPattern.src}
-                grainUrl={grainImg.src}
-                showUserInfo={false}
-                enableTilt={true}
-                enableMobileTilt={false}
-                onContactClick={() => console.log('Contact clicked')}
-                behindGlowEnabled={true}
-                behindGlowColor="hsla(280, 100%, 70%, 0.60)"
-                innerGradient="linear-gradient(145deg,hsla(280, 40%, 45%, 0.55) 0%,hsla(260, 60%, 70%, 0.27) 100%)" 
-                behindGlowSize={undefined} 
-                miniAvatarUrl={undefined}
-                avatarStyle={{ top: 'unset', bottom: '0px', transform: 'translateX(-60%)', width: '110%' }}
-        />
-        <ProfileCard
                 name="Aryan Vanam"
                 title="Logistics Head"
                 handle="aryanv"
@@ -478,7 +458,26 @@ export default function ProfilePage() {
                 miniAvatarUrl={undefined}
                 avatarStyle={{ top: 'unset', bottom: '-50px', transform: 'translateX(-50%)', width: '120%' }}
         />
-        <br></br>
+        <ProfileCard
+                name="Anainah Nahas"
+                title="Logistics Team"
+                handle="anainah"
+                status="Online"
+                contactText="Contact Me"
+                avatarUrl={anainahImg.src}
+                iconUrl={iconPattern.src}
+                grainUrl={grainImg.src}
+                showUserInfo={false}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => console.log('Contact clicked')}
+                behindGlowEnabled={true}
+                behindGlowColor="hsla(280, 100%, 70%, 0.60)"
+                innerGradient="linear-gradient(145deg,hsla(280, 40%, 45%, 0.55) 0%,hsla(260, 60%, 70%, 0.27) 100%)" 
+                behindGlowSize={undefined} 
+                miniAvatarUrl={undefined}
+                avatarStyle={{ top: 'unset', bottom: '0px', transform: 'translateX(-60%)', width: '110%' }}
+        />
         <ProfileCard
                 name="Kenneth Jude Thomas"
                 title="Logistics Team"
