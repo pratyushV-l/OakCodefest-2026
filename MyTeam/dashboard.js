@@ -1,4 +1,4 @@
-const EVENT_DATE = new Date("2026-02-08T10:00:00");
+const EVENT_END = new Date("2026-02-08T10:00:00");
 const TEAM_ID = localStorage.getItem("username") || "T01";
 
 let feedbackData = [];
@@ -25,7 +25,7 @@ function startCountdown() {
   const el = document.getElementById("countdown");
 
   function tick() {
-    const diff = EVENT_DATE - new Date();
+    const diff = EVENT_END - new Date();
 
     if (diff <= 0) {
       el.textContent = "EVENT LIVE";
