@@ -112,6 +112,11 @@ if (form && messageDiv) {
                 if (response.ok && data.valid) {
                     window.location.href = 'dashboard.html';
                 }
+                else {
+                    // remove invalid token
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('username');
+                }
             } catch (error) {
                 console.log('Token verification failed:', error);
             }

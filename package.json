@@ -6,7 +6,18 @@
   "scripts": {
     "test": "echo \"No tests specified\""
   },
-  "keywords": ["login", "netlify", "serverless"],
+  "keywords": [
+    "login",
+    "netlify",
+    "serverless"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.91.1",
+    "netlify": "^13.3.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.9"
+  }
 }

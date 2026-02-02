@@ -1,6 +1,7 @@
 .mission-vision-section,
 .what-is-section,
-.benefits-section {
+.benefits-section,
+.our-team-section {
     padding: 20px 40px; 
 }
 
@@ -469,12 +470,6 @@ section {
     box-sizing: border-box;
 }
 
-.schedule-title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 32px;
-}
-
 .schedule-container {
     display: flex;
     gap: 24px;
@@ -486,6 +481,15 @@ section {
     flex: 1;
     display: flex;
     justify-content: center;
+}
+
+.team-iframe {
+    width: 100%; 
+    border: none; 
+    overflow-x: hidden;
+    background-color: transparent;
+    min-height: 2500px;
+    height: auto;
 }
 
 .schedule-image img {
@@ -566,4 +570,8 @@ section {
     .note-content {
         padding: 22px;
     }
+}
+
+.our-team-section {
+
 }
