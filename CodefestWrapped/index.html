@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefest 2026 Wrapped</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="aurora-container">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
+        <div class="aurora-blob aurora-3"></div>
+    </div>
+    <div class="wrapped-container">
+        <div class="slide active">
+            <header>
+                <div class="logo">CODEFEST <span style="color:var(--sec-accent-color)">2026</span></div>
+                <h1 style="font-size: 4rem; margin: 0; color: var(--sec-accent-color);">WRAPPED</h1>
+                <p style="opacity: 0.7">Your last 24 hours in code</p>
+            </header>
+        </div>
+
+        <div class="slide">
+            <div class="card">
+                <h2 style="text-align: center; border: none;">Total Commits</h2>
+                <div class="stat-value" style="text-align: center;" id="total-commits">0</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <section class="card">
+                <h2>Languages Used</h2>
+                <div class="chart-container" id="languages-chart">
+                </div>
+            </section>
+        </div>
+
+        <div class="slide">
+            <section class="card">
+                <h2>Contributors</h2>
+                <div class="contributors-list" id="contributors-list">
+                </div>
+            </section>
+        </div>
+
+        <div class="slide">
+            <div class="card">
+                <h2 style="text-align: center; border: none;">Lines of Code</h2>
+                <div class="stat-value" style="text-align: center;" id="lines-of-code">0</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="card">
+                <h2 style="text-align: center; border: none;">Semicolons</h2>
+                <div class="stat-value" style="text-align: center;" id="semicolons">0</div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button id="prevBtn" class="nav-btn" style="display: none;">Back</button>
+            <button id="nextBtn" class="nav-btn">Start</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
