@@ -1,5 +1,19 @@
 [ 
   {
+    "title": "Codefest Bootcamp resources are now available!",
+    "description": "The CF Bootcamp, with the last session earlier today just ended! If you missed the bootcamp or want to review the material, you can find all the PPTs and resources in the resources section. Check them out now!",
+    "date": "05-10-2026",
+    "image": "images/updates8.png",
+    "importance": 1
+  },
+  {
+    "title": "Codefest 2026 registrations have been closed.",
+    "description":"Registrations for Codefest 2026 have been closed. We are excited to see all the amazing projects that will be created this year! Stay tuned for more updates and announcements.",
+    "date": "04-07-2026",
+    "image": "images/updates7.png",
+    "importance": 2
+  },
+  {
     "title": "Join the Codefest Discord Server Now!!!",
     "description": "Stay updated with the latest announcements, connect with fellow participants, and get support by joining our official Codefest Discord server. Click the link in the resources section to join now!",
     "date": "02-10-2026",
